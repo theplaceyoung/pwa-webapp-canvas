@@ -44,6 +44,10 @@ canvas.addEventListener('mousedown', startPosition);
 canvas.addEventListener('mouseup', endPosition);
 canvas.addEventListener('mousemove', draw);
 
+canvas.addEventListener('touchstart', startPosition);
+canvas.addEventListener('touchend', endPosition);
+canvas.addEventListener('touchmove', draw);
+
 function startPosition(e) {
     painting = true;
     draw(e);
@@ -60,6 +64,10 @@ function draw(e) {
     ctx.lineWidth = isEraserActive ? 10 : 2;
     ctx.lineCap = 'round';
     ctx.strokeStyle = isEraserActive ? 'white' : currentColor;
+
+    // Get touch coordinates
+    const x = e.offsetX || e.touches[0].clientX - canvas.offsetLeft;
+    const y = e.offsetY || e.touches[0].clientY - canvas.offsetTop;
 
     ctx.lineTo(e.offsetX, e.offsetY);
     ctx.stroke();

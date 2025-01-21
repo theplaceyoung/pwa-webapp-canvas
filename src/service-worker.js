@@ -3,7 +3,7 @@ const urlsToCache = [
   "/",
   "/index.html",
   "/styles.css",
-  "/app.js"
+  "/bundle.js"
 ];
 
 self.addEventListener("install", (event) => {

@@ -1,5 +1,5 @@
 {
-  "name": "my_creative_canvas",
+  "name": "pwa_webapp_canvas",
   "version": "1.0.0",
   "main": "index.html",
   "scripts": {
@@ -11,5 +11,8 @@
     "html-webpack-plugin": "^5.6.3",
     "style-loader": "^4.0.0",
     "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "babel-loader": "^9.2.1"
   }
 }

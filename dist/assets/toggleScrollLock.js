@@ -1,0 +1,1 @@
+let scrollLocked=!1;function toggleScrollLock(){scrollLocked=!scrollLocked;const l=document.getElementById("scroll-lock");scrollLocked?(document.body.classList.add("scroll-locked"),l.classList.add("active")):(document.body.classList.remove("scroll-locked"),l.classList.remove("active"))}export default toggleScrollLock;

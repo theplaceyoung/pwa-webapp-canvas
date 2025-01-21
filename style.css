@@ -32,6 +32,52 @@ canvas {
     font-weight: bold;
 }
 
+/* 스크롤 락 */
+#mode-tools {
+    position: fixed;
+    bottom: 10px;  /* 원하는 위치에 버튼 표시 */
+    right: 10px;
+    z-index: 1000;  /* 위로 항상 올라오기 */
+}
+.scroll-locked {
+    overflow: hidden;  /* 화면 스크롤 방지 */
+}
+#scroll-lock.active {
+    background-color: #007BFF;  /* 활성화 상태의 버튼 색상 */
+    color: white;
+    /* 아이콘 추가 스타일 */
+    content: url('icons/lock-16x16.svg');  /* 아이콘 경로 변경 */
+    background-size: 16px; /* 아이콘 크기 조절 */
+    background-repeat: no-repeat;  /* 아이콘 반복되지 않음 */
+    padding-left: 20px;  /* 아이콘과 텍스트 간격 */
+}
+#scroll-lock {
+    display: block;  
+}
+#scroll-lock {
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#scroll-lock img {
+    width: 24px;
+    height: 24px;
+}
+.scroll-locked #scroll-lock {
+    display: block; /* 스크롤 잠금 상태에서도 버튼 보임 */
+}
+button.active {
+    background-color: #007BFF;  /* 활성화된 상태의 버튼 스타일 */
+    color: white;
+}
+
+
 /* Tools 컨테이너 설정 */
 .tools {
     position: absolute; /* 캔버스 위에 위치해야 합니다. */

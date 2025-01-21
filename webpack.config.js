@@ -3,10 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './index.html',  // Entry를 index.html로 설정
+  entry: './src/index.js',  // Entry
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'  // Output 파일 이름 설정
+    filename: 'bundle.js',  // Output 파일
+    assetModuleFilename: 'assets/[name][ext]'  // Output 파일
   },
   module: {
     rules: [
@@ -17,7 +18,14 @@ module.exports = {
       {
         test: /\.html$/,
         loader: 'html-loader'  // HTML 로더 설정 추가
-      }
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',  // JS 로더 설정 추가
+        },
+      },
     ]
   },
   plugins: [

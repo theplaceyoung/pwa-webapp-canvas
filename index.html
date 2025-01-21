@@ -3,23 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="icons/favicon.ico" type="image/x-icon"> <!-- Favicon 링크 -->
+    <title>Draw it Yourself</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
     <link rel="icon" sizes="16x16" href="icons/icon-16x16.png">
     <link rel="icon" sizes="32x32" href="icons/icon-32x32.png">
     <link rel="icon" sizes="48x48" href="icons/icon-48x48.png">
-    <title>Draw it yourself</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Manifest and Theme -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#000000">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- App Bar -->
-    <div class="appbar">
+    <header class="appbar">
         <h1>Draw it Yourself</h1>
-    </div>
+    </header>
 
-    <!-- tool options -->
-    <div class="tools" id="tools">
+    <!-- Mode Tools -->
+    <section class="mode-tools" id="mode-tools">
+        <button id="scroll-lock" class="button" aria-label="Toggle Scroll Lock">
+            <img src="icons/unlock-16x16.svg" alt="Unlock Icon" id="scroll-lock-icon">
+        </button>
+    </section>
+    
+    <!-- Tool Options -->
+    <section class="tools" id="tools">
         <button id="black" class="button">검정</button>
         <button id="red" class="button">빨강</button>
         <button id="blue" class="button">파랑</button>
@@ -27,28 +40,36 @@
         <button id="eraser" class="button">지우개</button>
         <button id="save" class="button">저장</button>
         <button id="export" class="button">내보내기</button>
-    </div>
+    </section>
 
-    <!-- canvas area-->
-    <canvas id="drawingCanvas" width="800" height="600"></canvas>
+    <!-- Canvas Area -->
+    <main>
+        <canvas id="drawingCanvas" width="800" height="600"></canvas>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
-      <p style="line-height: 1.8;">
-        © 2025 DRAFT <span style="margin: 0 10px;">|</span>
-          <a href="theplaceyoung@gmail.com">theplaceyoung@gmail.com</a>
-      </p>
+        <p>
+            © 2025 DRAFT <span>|</span>
+            <a href="mailto:theplaceyoung@gmail.com">theplaceyoung@gmail.com</a>
+        </p>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="drag-and-drop.js"></script> 
+    <!-- Bundle Script -->
+    <script src="dist/bundle.js"></script>
     <script>
+        // Initialize scroll lock functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollLockButton = document.getElementById('scroll-lock');
+            scrollLockButton.addEventListener('click', toggleScrollLock);
+        });
+
+        // Register service worker
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/service-worker.js')
-              .then(() => console.log('Service Worker Registered'))
-              .catch((error) => console.log('Service Worker Registration Failed:', error));
-          }
+                .then(() => console.log('Service Worker Registered'))
+                .catch((error) => console.error('Service Worker Registration Failed:', error));
+        }
     </script>
-   
 </body>
 </html>
