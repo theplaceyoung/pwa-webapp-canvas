@@ -3,10 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './index.html',  // Entry를 index.html로 설정
+  entry: './index.js',  // Entry
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'  // Output 파일 이름 설정
+    filename: 'bundle.js',  // Output 파일
+    assetModuleFilename: 'assets/[name][ext]'  // Output 파일
   },
   module: {
     rules: [
