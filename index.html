@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="icons/favicon.ico" type="image/x-icon"> <!-- Favicon 링크 -->
-    <link rel="icon" sizes="16x16" href="icons/favicon-16x16.png">
-    <link rel="icon" sizes="32x32" href="icons/favicon-32x32.png">
-    <link rel="icon" sizes="48x48" href="icons/favicon-48x48.png">
+    <link rel="icon" sizes="16x16" href="icons/icon-16x16.png">
+    <link rel="icon" sizes="32x32" href="icons/icon-32x32.png">
+    <link rel="icon" sizes="48x48" href="icons/icon-48x48.png">
     <title>Draw it yourself</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#000000">
 </head>
 <body>
     <!-- App Bar -->
@@ -40,6 +42,13 @@
 
     <script src="script.js"></script>
     <script src="drag-and-drop.js"></script> 
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+              .then(() => console.log('Service Worker Registered'))
+              .catch((error) => console.log('Service Worker Registration Failed:', error));
+          }
+    </script>
    
 </body>
 </html>
