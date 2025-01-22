@@ -32,28 +32,20 @@ canvas {
     font-weight: bold;
 }
 
-/* 스크롤 락 */
+/* 스크롤 락 버튼 컨테이너 */
 #mode-tools {
     position: fixed;
-    bottom: 10px;  /* 원하는 위치에 버튼 표시 */
+    bottom: 10px;  /* 버튼 위치 */
     right: 10px;
-    z-index: 1000;  /* 위로 항상 올라오기 */
+    z-index: 1000;  /* 항상 위로 표시 */
 }
+
+/* 스크롤 락 활성화 시 */
 .scroll-locked {
     overflow: hidden;  /* 화면 스크롤 방지 */
 }
-#scroll-lock.active {
-    background-color: #007BFF;  /* 활성화 상태의 버튼 색상 */
-    color: white;
-    /* 아이콘 추가 스타일 */
-    content: url('icons/lock-16x16.svg');  /* 아이콘 경로 변경 */
-    background-size: 16px; /* 아이콘 크기 조절 */
-    background-repeat: no-repeat;  /* 아이콘 반복되지 않음 */
-    padding-left: 20px;  /* 아이콘과 텍스트 간격 */
-}
-#scroll-lock {
-    display: block;  
-}
+
+/* 스크롤 락 버튼 스타일 */
 #scroll-lock {
     background-color: #f0f0f0;
     border: none;
@@ -63,18 +55,36 @@ canvas {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;  /* 클릭 시 부드러운 색상 전환 */
 }
 
 #scroll-lock img {
-    width: 24px;
-    height: 24px;
+    width: 36px;
+    height: 36px;
 }
-.scroll-locked #scroll-lock {
-    display: block; /* 스크롤 잠금 상태에서도 버튼 보임 */
-}
-button.active {
-    background-color: #007BFF;  /* 활성화된 상태의 버튼 스타일 */
+
+/* 활성화 상태 */
+#scroll-lock.scroll-locked {
+    background-color: #007BFF;  /* 활성화 상태의 버튼 색상 */
     color: white;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    #mode-tools {
+        bottom: 5px;
+        right: 5px;
+    }
+
+    #scroll-lock {
+        padding: 8px;
+    }
+
+    #scroll-lock img {
+        width: 36px;
+        height: 36px;
+    }
 }
 
 
