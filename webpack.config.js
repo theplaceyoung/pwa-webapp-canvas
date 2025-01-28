@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './index.js',  // Entry
+  entry: './src/index.js',  // Entry
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',  // Output 파일

@@ -12,9 +12,8 @@ body {
 canvas {
     border: 1px solid grey;
     background-color: transparent;
-    /* flex: 1; 캔버스가 flex 영역을 차지하게 설정 */    
-    margin-bottom: 40px; /* footer와 겹치지 않도록 여백 추가 */
-    /* height: calc(100vh - 170px); */
+    height: 100%; /* 또는 원하는 고정값 */
+    margin-bottom: 40px;
 }
 .appbar {
     top: 0;
@@ -81,10 +80,10 @@ canvas {
         padding: 8px;
     }
 
-    #scroll-lock img {
+    /* #scroll-lock img {
         width: 36px;
         height: 36px;
-    }
+    } */
 }
 
 
@@ -127,16 +126,20 @@ canvas {
     cursor: grabbing;  /* 내부 모든 버튼 및 요소가 드래그 상태에서 손 모양 */
 }
 
+#drawingCanvas {
+    touch-action: none; /* 기본 스크롤 동작 방지 */
+}
+
 /* Footer 스타일 */
 .footer a {
-    color: white; /* 하이퍼링크 글자 색상 */
-    text-decoration: none; /* 밑줄 제거 */
+    color: white;
+    text-decoration: none;
 }
 
 .footer a:hover {
-    color: #ffcc00; /* 마우스 오버 시 하이라이트 색상 */
-    text-decoration: underline; /* 마우스 오버 시 밑줄 추가 */
-} 
+    color: #ffcc00;
+    text-decoration: underline;
+}
 
 footer {
     position: fixed; /* 페이지 하단에 고정 */
